@@ -12,12 +12,12 @@ struct Question{
 
 bool correctAns(int correct){
     int answer;
-    cout << "Choose 1-3 ->>> ";
+    cout << "Choose 1-4 ->>> ";
     cin >> answer;
 
     while (answer > 3 && answer < 1){
         cout << "Invalid answer!" << endl;
-        cout << "Choose 1-3 ->>> ";
+        cout << "Choose 1-4 ->>> ";
         cin >> answer;
     }
     if (answer == correct){
@@ -92,7 +92,15 @@ int main(){
     question6.answer[3] = "4.) Issac Newton";
     question6.correctAns = 2;
 
-    list<Question> allQuestions = {question1, question2, question3, question4, question5, question6};
+    Question question7;
+    question7.question = "Which scientist created Electricity ? ";
+    question7.answer[0] = "1.) Thomas Edison";
+    question7.answer[1] = "2.) Nicolas Tesla";
+    question7.answer[2] = "3.) Claude Bernard";
+    question7.answer[3] = "4.) Issac Newton";
+    question7.correctAns = 2;
+
+    list<Question> allQuestions = {question1, question2, question3, question4, question5, question6, question7};
     for (Question alpha : allQuestions){
         score = Startquiz(alpha) + score;
     }
