@@ -41,8 +41,10 @@ bool Startquiz(Question number){
 
 
 int main(){
-
-    int score = 0;
+    string player_name;
+    int operation = 0;
+    int player_score = 0;
+    int question_count = 1;
 
     Question question1;
     question1.question = "What is the 23rd element on the periodic table ? ";
@@ -100,12 +102,83 @@ int main(){
     question7.answer[3] = "4.) Issac Newton";
     question7.correctAns = 2;
 
-    list<Question> allQuestions = {question1, question2, question3, question4, question5, question6, question7};
-    for (Question alpha : allQuestions){
-        score = Startquiz(alpha) + score;
-    }
+    Question question8;
+    question8.question = "What is the 16th element on the periodic table ? ";
+    question8.answer[0] = "1.) Titanium";
+    question8.answer[1] = "2.) Sulphur";
+    question8.answer[2] = "3.) Zinc";
+    question8.answer[3] = "4.) Phosphorus";
+    question8.correctAns = 2;
 
-    cout << "You had a total of " << score << " points.";
+    Question question9;
+    question9.question = "What is the 20th element on the periodic table ? ";
+    question9.answer[0] = "1.) Calcium";
+    question9.answer[1] = "2.) Arsenic";
+    question9.answer[2] = "3.) Potassium";
+    question9.answer[3] = "4.) Vanadium";
+    question9.correctAns = 1;
+
+    Question question10;
+    question10.question = "What is the 18th element on the periodic table ? ";
+    question10.answer[0] = "1.) Magnesium";
+    question10.answer[1] = "2.) Argon";
+    question10.answer[2] = "3.) Zinc";
+    question10.answer[3] = "4.) Vanadium";
+    question10.correctAns = 2;
+
+    Question question11;
+    question11.question = "What is the symbol of the 19th element on the periodic table ? ";
+    question11.answer[0] = "1.) Rb";
+    question11.answer[1] = "2.) Na";
+    question11.answer[2] = "3.) K";
+    question11.answer[3] = "4.) P";
+    question11.correctAns = 3;
+
+    Question question12;
+    question12.question = "What is the 17th element on the periodic table ? ";
+    question12.answer[0] = "1.) Magnesium";
+    question12.answer[1] = "2.) Argon";
+    question12.answer[2] = "3.) Chlorine";
+    question12.answer[3] = "4.) Vanadium";
+    question12.correctAns = 3;
+
+    cout << "Welcome to questionaire." << endl;
+    cout << "Enter name->>> ";
+    cin >> player_name;
+    system("cls");
+
+    cout << "Hello " << player_name << ". Select an option." << endl;
+    cout << "1.) Play Game" << endl;
+    cout << "2.) Quit" << endl;
+    cout << "Select play option >>> ";
+    cin >> operation;
+
+    do{
+        switch(operation){
+            case 2:
+                system("cls");
+                cout << "Thanks for playing." << endl;
+                break;
+            
+            case 1:
+                list<Question> allQuestions = {question1, question2, question3, question4, question5, question6, question7, question8, question9, question10, question11, question12};
+                for (Question alpha : allQuestions){
+                    cout << "Question " << question_count << "!" << endl;
+                    player_score = Startquiz(alpha) + player_score;
+                    question_count++;
+                }
+                break;
+
+                
+        }
+        if (operation == 1){
+            cout << "Congrats " << player_name << " you answered " << question_count << " questions." << endl;
+            cout << "You had a total of " << player_score << " points.";
+            break;
+        }
+        break;
+
+    } while (operation != 2);
 
 
 
